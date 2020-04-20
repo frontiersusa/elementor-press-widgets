@@ -147,28 +147,4 @@ class Text extends Widget_Base {
 			'el' => $settings['html_tag'],
 		]);
 	}
-
-	/**
-	 * Render the widget output in the editor.
-	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 * @since 1.1.0
-	 *
-	 * @access protected
-	 */
-	protected function _content_template() {
-		add_action('init', function(){
-			?>
-			<# view.addInlineEditingAttributes( 'text', 'basic' ); #>
-			<# view.addInlineEditingAttributes( 'el', 'none' ); #>
-			<?php
-			render("components.text", [
-				'text' => "{{ settings.text }}",
-				'text_attributes' => "{{{ view.getRenderAttributeString( 'text' ) }}}",
-				'el' => "{{ settings.html_tag }}",
-				// 'text_size' => "{{ settings.text_size }}"
-			]);
-		});
-	}
 }
