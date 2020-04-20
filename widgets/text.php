@@ -145,6 +145,14 @@ class Text extends Widget_Base {
 			'text' => $settings['text'],
 			'text_attributes' => $this->get_render_attribute_string( 'text' ),
 			'el' => $settings['html_tag'],
+			'data' => [
+				'text' => $settings['text'],
+				'el' => $settings['html_tag'],
+				'text_attr' => preg_replace('/class =\\"[^\\"]*\\"/', '', $this->get_render_attribute_string('text')),
+			],
+			'classes' => [
+				'comp' => $this->get_render_attributes( 'text' )['class']
+			]
 		]);
 	}
 }
