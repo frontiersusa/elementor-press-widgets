@@ -138,13 +138,17 @@ class Text extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
+		// Get settings
 		$settings = $this->get_settings_for_display();
+
+		// Set inline editing
 		$this->add_inline_editing_attributes( 'text', 'basic' );
+
+		// Set render attributes
 		$this->add_render_attribute( 'text', 'class', $settings['text_size'] );
+
+		// Render component
 		render("components.text", [
-			'text' => $settings['text'],
-			'text_attributes' => $this->get_render_attribute_string( 'text' ),
-			'el' => $settings['html_tag'],
 			'data' => [
 				'text' => $settings['text'],
 				'el' => $settings['html_tag'],
